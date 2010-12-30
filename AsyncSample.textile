@@ -1,4 +1,4 @@
-h2. Async Parser Sample
+h1. Async Parser Sample
 
 UserParser.h
 
@@ -50,7 +50,7 @@ UserParser.m
 }
 
 - (NSOperationQueue *)operationQueue {
-	if(nil == _operationQueue) {
+	if (nil == _operationQueue) {
 		_operationQueue = [[NSOperationQueue alloc] init];
 		_operationQueue.maxConcurrentOperationCount = 1;
 	}
@@ -63,9 +63,8 @@ UserParser.m
 }
 
 - (void) getUsers {
-
+	
 	[self toggleLoadingView];
-
 	SEL method = @selector(getUsersJob:);
 
 	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self 
@@ -77,14 +76,13 @@ UserParser.m
 }
 
 - (void) getUsersJob:(NSString *)uniqueName {
-
+	
 	Response *res = [[Restfulie at:@"http://localhost:8888/users"] get];
 	NSArray *users = [res resourceWithClass:[User class]];
-
+	
 	[(id)[self delegate] performSelectorOnMainThread:@selector(addUsers:)
 										  withObject:users
 									   waitUntilDone:NO];
-
 	[self toggleLoadingView];
 }
 
