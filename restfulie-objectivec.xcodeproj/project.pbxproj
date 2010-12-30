@@ -7,12 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DCD422C12CCCBFC00A919BD /* RestObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD421712CCCBFC00A919BD /* RestObj.h */; };
-		5DCD422D12CCCBFC00A919BD /* RestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD421812CCCBFC00A919BD /* RestObj.m */; };
 		5DCD422E12CCCBFC00A919BD /* Request.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD421A12CCCBFC00A919BD /* Request.h */; };
 		5DCD422F12CCCBFC00A919BD /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD421B12CCCBFC00A919BD /* Request.m */; };
-		5DCD423012CCCBFC00A919BD /* Request.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD421C12CCCBFC00A919BD /* Request.h */; };
-		5DCD423112CCCBFC00A919BD /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD421D12CCCBFC00A919BD /* Request.m */; };
 		5DCD423212CCCBFC00A919BD /* Resource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD421E12CCCBFC00A919BD /* Resource.h */; };
 		5DCD423312CCCBFC00A919BD /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD421F12CCCBFC00A919BD /* Resource.m */; };
 		5DCD423412CCCBFC00A919BD /* Response.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD422012CCCBFC00A919BD /* Response.h */; };
@@ -78,12 +74,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5DCD421712CCCBFC00A919BD /* RestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestObj.h; sourceTree = "<group>"; };
-		5DCD421812CCCBFC00A919BD /* RestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestObj.m; sourceTree = "<group>"; };
 		5DCD421A12CCCBFC00A919BD /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		5DCD421B12CCCBFC00A919BD /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
-		5DCD421C12CCCBFC00A919BD /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
-		5DCD421D12CCCBFC00A919BD /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		5DCD421E12CCCBFC00A919BD /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
 		5DCD421F12CCCBFC00A919BD /* Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resource.m; sourceTree = "<group>"; };
 		5DCD422012CCCBFC00A919BD /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
@@ -196,8 +188,6 @@
 			children = (
 				5DCD422412CCCBFC00A919BD /* serialize */,
 				5DCD421912CCCBFC00A919BD /* http */,
-				5DCD421C12CCCBFC00A919BD /* Request.h */,
-				5DCD421D12CCCBFC00A919BD /* Request.m */,
 				5DCD421E12CCCBFC00A919BD /* Resource.h */,
 				5DCD421F12CCCBFC00A919BD /* Resource.m */,
 				5DCD422012CCCBFC00A919BD /* Response.h */,
@@ -219,8 +209,6 @@
 		5DCD421612CCCBFC00A919BD /* fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				5DCD421712CCCBFC00A919BD /* RestObj.h */,
-				5DCD421812CCCBFC00A919BD /* RestObj.m */,
 			);
 			path = fixtures;
 			sourceTree = "<group>";
@@ -349,9 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch in Headers */,
-				5DCD422C12CCCBFC00A919BD /* RestObj.h in Headers */,
 				5DCD422E12CCCBFC00A919BD /* Request.h in Headers */,
-				5DCD423012CCCBFC00A919BD /* Request.h in Headers */,
 				5DCD423212CCCBFC00A919BD /* Resource.h in Headers */,
 				5DCD423412CCCBFC00A919BD /* Response.h in Headers */,
 				5DCD423612CCCBFC00A919BD /* Restfulie.h in Headers */,
@@ -438,9 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DCD422D12CCCBFC00A919BD /* RestObj.m in Sources */,
 				5DCD422F12CCCBFC00A919BD /* Request.m in Sources */,
-				5DCD423112CCCBFC00A919BD /* Request.m in Sources */,
 				5DCD423312CCCBFC00A919BD /* Resource.m in Sources */,
 				5DCD423512CCCBFC00A919BD /* Response.m in Sources */,
 				5DCD423712CCCBFC00A919BD /* Restfulie.m in Sources */,
