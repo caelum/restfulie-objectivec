@@ -66,7 +66,7 @@ UserRequest.m
 - (void) getUsers {
 	
 	[self toggleLoadingView];
-	SEL method = @selector(getUsersJob:);
+	SEL method = @selector(getUsersJob);
 
 	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:method object:nil];
 	[self.operationQueue addOperation:op];
