@@ -36,9 +36,9 @@ Check this "sample":https://github.com/caelum/restfulie-objectivec/blob/master/A
 
 h2. External Libs
 
-* json-framework:http://code.google.com/p/json-framework/
-* asihttp:http://allseeing-i.com/ASIHTTPRequest/
-* aqtoolkit extensions:https://github.com/AlanQuatermain/aqtoolkit/tree/master/Extensions
+* "json-framework":http://code.google.com/p/json-framework/
+* "asihttp":http://allseeing-i.com/ASIHTTPRequest/
+* "aqtoolkit extensions":https://github.com/AlanQuatermain/aqtoolkit/tree/master/Extensions
 
 h2. Colaborate 
 
