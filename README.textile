@@ -1,6 +1,6 @@
 h1. Restfulie Objective-C
 
-Just starting development. Only GET method working with JSON media type! Please, check back soon... 
+Just starting development. Only GET method is working with JSON media type by now! Please, check back soon... 
 
 h2. Simple Installation
 
@@ -33,6 +33,12 @@ h2. iOS Async Request
 
 Create custom protocols with operation queues and attend to it in your views! 
 Check this "sample":https://github.com/caelum/restfulie-objectivec/blob/master/AsyncSample.textile
+
+h2. External Libs
+
+* json-framework:http://code.google.com/p/json-framework/
+* asihttp:http://allseeing-i.com/ASIHTTPRequest/
+* aqtoolkit extensions:https://github.com/AlanQuatermain/aqtoolkit/tree/master/Extensions
 
 h2. Colaborate 
 
