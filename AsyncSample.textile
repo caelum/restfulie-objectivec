@@ -2,7 +2,6 @@ h2. Async Parser Sample
 
 UserParser.h
 <pre>
-	
 #import <Foundation/Foundation.h>
 #import "User.h"
 
@@ -11,7 +10,6 @@ UserParser.h
 @end
 
 @interface UserParser : NSObject {
-	
 	id<UserParserDelegate> _delegate;
 	NSOperationQueue *_operationQueue;
 }
@@ -20,12 +18,10 @@ UserParser.h
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
 
 #pragma mark Initializers
-
 +(id) parserWithDelegate:(id)delegate;
 -(id) initWithDelegate:(id)delegate;
 
 #pragma mark User Parser methods
-
 -(void) getUsers;
 
 @end
