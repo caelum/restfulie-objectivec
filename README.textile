@@ -1,4 +1,4 @@
-h2. Restfulie Objective-C
+h1. Restfulie Objective-C
 
 Just starting development. Only GET method working with JSON media type! Please, check back soon... 
 
@@ -8,7 +8,7 @@ Just drag n' drop "Classes" and "Libs" folders into your project!
 
 h2. Usage
 
-h1. GET
+GET
 
 By now you can use like this:
 
