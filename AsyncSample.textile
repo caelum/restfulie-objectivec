@@ -117,10 +117,10 @@ UserTableViewController.m
 @synthesize userParser;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
- 		self.userParser = [UserParser parserWithDelegate:self];
-    }
-    return self;
+	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+		self.userParser = [UserParser parserWithDelegate:self];
+	}
+	return self;
 }
 
 - (void) viewDidLoad {
@@ -137,8 +137,6 @@ UserTableViewController.m
 	[self.userParser release];
 	[super dealloc];
 }
-
 #pragma mark TableView implementations
 //...
-	
 </pre>
