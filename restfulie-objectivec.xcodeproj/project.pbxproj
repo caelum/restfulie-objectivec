@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -64,11 +64,15 @@
 		5DCD42A212CCCCD500A919BD /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD427812CCCCD500A919BD /* ASIS3Request.m */; };
 		5DCD42A312CCCCD500A919BD /* ASIS3ServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD427912CCCCD500A919BD /* ASIS3ServiceRequest.h */; };
 		5DCD42A412CCCCD500A919BD /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD427A12CCCCD500A919BD /* ASIS3ServiceRequest.m */; };
-		5DCD42C412CCCD9600A919BD /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCD42C312CCCD9600A919BD /* libz.1.2.3.dylib */; };
 		5DCD43B112CCD05200A919BD /* NSString+PropertyKVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD43AD12CCD05200A919BD /* NSString+PropertyKVC.h */; };
 		5DCD43B212CCD05200A919BD /* NSString+PropertyKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD43AE12CCD05200A919BD /* NSString+PropertyKVC.m */; };
 		5DCD43B312CCD05200A919BD /* NSObject+Properties.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD43AF12CCD05200A919BD /* NSObject+Properties.h */; };
 		5DCD43B412CCD05200A919BD /* NSObject+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD43B012CCD05200A919BD /* NSObject+Properties.m */; };
+		5DCD44BC12CCF43900A919BD /* SimpleObjParserTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD44BB12CCF43900A919BD /* SimpleObjParserTestCase.m */; };
+		5DCD458D12CCF98400A919BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		5DCD45AB12CCFA6300A919BD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD45AA12CCFA6300A919BD /* User.m */; };
+		5DCD45AE12CCFA8500A919BD /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD45AD12CCFA8500A919BD /* Address.m */; };
+		5DCD45E212CCFC1000A919BD /* librestfulie_objectivec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* librestfulie_objectivec.a */; };
 		AA747D9F0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -131,23 +135,38 @@
 		5DCD427812CCCCD500A919BD /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
 		5DCD427912CCCCD500A919BD /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
 		5DCD427A12CCCCD500A919BD /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
-		5DCD42C312CCCD9600A919BD /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		5DCD43AD12CCD05200A919BD /* NSString+PropertyKVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PropertyKVC.h"; sourceTree = "<group>"; };
 		5DCD43AE12CCD05200A919BD /* NSString+PropertyKVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PropertyKVC.m"; sourceTree = "<group>"; };
 		5DCD43AF12CCD05200A919BD /* NSObject+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Properties.h"; sourceTree = "<group>"; };
 		5DCD43B012CCD05200A919BD /* NSObject+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Properties.m"; sourceTree = "<group>"; };
+		5DCD44AE12CCF3BC00A919BD /* test-target.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "test-target.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DCD44AF12CCF3BC00A919BD /* test-target-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test-target-Info.plist"; sourceTree = "<group>"; };
+		5DCD44BA12CCF43900A919BD /* SimpleObjParserTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObjParserTestCase.h; sourceTree = "<group>"; };
+		5DCD44BB12CCF43900A919BD /* SimpleObjParserTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObjParserTestCase.m; sourceTree = "<group>"; };
+		5DCD45A912CCFA6300A919BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5DCD45AA12CCFA6300A919BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5DCD45AC12CCFA8500A919BD /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		5DCD45AD12CCFA8500A919BD /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restfulie_objectivec_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* librestfulie_objectivec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librestfulie_objectivec.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5DCD44AB12CCF3BC00A919BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DCD458D12CCF98400A919BD /* Foundation.framework in Frameworks */,
+				5DCD45E212CCFC1000A919BD /* librestfulie_objectivec.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				5DCD42C412CCCD9600A919BD /* libz.1.2.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AAC07E0554694100DB518D /* librestfulie_objectivec.a */,
+				5DCD44AE12CCF3BC00A919BD /* test-target.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,6 +191,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				5DCD44AF12CCF3BC00A919BD /* test-target-Info.plist */,
 			);
 			name = "restfulie-objectivec";
 			sourceTree = "<group>";
@@ -209,6 +230,10 @@
 		5DCD421612CCCBFC00A919BD /* fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				5DCD45A912CCFA6300A919BD /* User.h */,
+				5DCD45AA12CCFA6300A919BD /* User.m */,
+				5DCD45AC12CCFA8500A919BD /* Address.h */,
+				5DCD45AD12CCFA8500A919BD /* Address.m */,
 			);
 			path = fixtures;
 			sourceTree = "<group>";
@@ -240,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				5DCD421612CCCBFC00A919BD /* fixtures */,
+				5DCD44BA12CCF43900A919BD /* SimpleObjParserTestCase.h */,
+				5DCD44BB12CCF43900A919BD /* SimpleObjParserTestCase.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -377,6 +404,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5DCD44AD12CCF3BC00A919BD /* test-target */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DCD44B212CCF3BD00A919BD /* Build configuration list for PBXNativeTarget "test-target" */;
+			buildPhases = (
+				5DCD44A912CCF3BC00A919BD /* Resources */,
+				5DCD44AA12CCF3BC00A919BD /* Sources */,
+				5DCD44AB12CCF3BC00A919BD /* Frameworks */,
+				5DCD44AC12CCF3BC00A919BD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "test-target";
+			productName = "test-target";
+			productReference = 5DCD44AE12CCF3BC00A919BD /* test-target.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		D2AAC07D0554694100DB518D /* restfulie-objectivec */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "restfulie-objectivec" */;
@@ -400,7 +445,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "restfulie-objectivec" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -415,11 +460,48 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* restfulie-objectivec */,
+				5DCD44AD12CCF3BC00A919BD /* test-target */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		5DCD44A912CCF3BC00A919BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DCD44AC12CCF3BC00A919BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\" 1> /tmp/RunUnitTests.out\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		5DCD44AA12CCF3BC00A919BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DCD44BC12CCF43900A919BD /* SimpleObjParserTestCase.m in Sources */,
+				5DCD45AB12CCFA6300A919BD /* User.m in Sources */,
+				5DCD45AE12CCFA8500A919BD /* Address.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,7 +581,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
@@ -512,7 +594,55 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos3.2;
+			};
+			name = Release;
+		};
+		5DCD44B012CCF3BD00A919BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "test-target-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "test-target";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5DCD44B112CCF3BD00A919BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "test-target-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "test-target";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -533,6 +663,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DCD44B212CCF3BD00A919BD /* Build configuration list for PBXNativeTarget "test-target" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DCD44B012CCF3BD00A919BD /* Debug */,
+				5DCD44B112CCF3BD00A919BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
