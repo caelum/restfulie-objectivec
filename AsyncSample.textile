@@ -130,7 +130,7 @@ UserTableViewController.m
 
 - (void) addUsers:(NSArray*)usrs {
 	self.users = usrs;
-	[self.tableView reloadData];
+	[[self tableView] reloadData];
 }
 
 - (void) dealloc {
