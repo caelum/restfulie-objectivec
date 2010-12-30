@@ -12,27 +12,27 @@ GET
 
 By now you can use like this:
 
-<pre>
-	Response *response = [[Restfulie at:@"http://localhost:8888/users"] get];
-	NSArray *users = [response resourceWithClass:[User class]];
+<pre>	
+Response *response = [[Restfulie at:@"http://localhost:8888/users"] get];
+NSArray *users = [response resourceWithClass:[User class]];
 
-	Response *response = [[Restfulie at:@"http://localhost:8888/users/1"] get];
-	User *user = [response resourceWithClass:[User class]];
+Response *response = [[Restfulie at:@"http://localhost:8888/users/1"] get];
+User *user = [response resourceWithClass:[User class]];
 </pre>
 
 We're working on registers so it will become something like this soon:
 
 <pre>
-	[Restfulie register:[User class]];
+[Restfulie register:[User class]];
 
-	Response *response = [[Restfulie at:@".."] get];
-	User *user = [response resource];
+Response *response = [[Restfulie at:@".."] get];
+User *user = [response resource];
 </pre>
 
 h2. Colaborate 
 
 Send us an email or DM.
 
-"Bruno Fuster":http://brunofuster.wordpress.com ("email":mailto:brunofuster@gmail.com ) - twitter:http://www.twitter.com/brunofuster
+"Bruno Fuster":http://brunofuster.wordpress.com ( "email":mailto:brunofuster@gmail.com ) - twitter:http://www.twitter.com/brunofuster
 "Guilherme Silveira":http://guilhermesilveira.wordpress.com ( "email":mailto:guilherme.silveira@caelum.com.br ) - twitter:http://www.twitter.com/guilhermecaelum
 
