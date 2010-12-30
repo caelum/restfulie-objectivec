@@ -12,7 +12,7 @@ GET
 
 By now you can use like this:
 
-<pre>	
+<pre>
 Response *response = [[Restfulie at:@"http://localhost:8888/users"] get];
 NSArray *users = [response resourceWithClass:[User class]];
 
@@ -28,6 +28,11 @@ We're working on registers so it will become something like this soon:
 Response *response = [[Restfulie at:@".."] get];
 User *user = [response resource];
 </pre>
+
+h2. iOS Async Request
+
+Create custom protocols with operation queues and attend to it in your views! 
+Check this "sample":http://github.com/bfuster/restfulie-objectivec/blob/master/AsyncSample.textile
 
 h2. Colaborate 
 
