@@ -59,7 +59,8 @@ UserParser.m
 }
 
 - (void) toggleLoadingView {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible  = ![UIApplication sharedApplication].networkActivityIndicatorVisible;
+	[UIApplication sharedApplication].networkActivityIndicatorVisible  = 
+		![UIApplication sharedApplication].networkActivityIndicatorVisible;
 }
 
 - (void) getUsers {
