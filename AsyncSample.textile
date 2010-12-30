@@ -82,9 +82,9 @@ UserParser.m
 }
 
 @end
-</pre>
+</pre> 
 
-h2. View Controller Sample
+h1. View Controller Sample
 
 UserListViewController.h
 
