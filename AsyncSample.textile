@@ -1,25 +1,25 @@
-h1. Async Parser Sample
+h1. Async Request Sample
 
-UserParser.h
+UserRequest.h
 
 <pre>
 #import <Foundation/Foundation.h>
 #import "User.h"
 
-@protocol UserParserDelegate
+@protocol UsersRequestDelegate
 -(void) addUsers:(NSArray*)users;
 @end
 
-@interface UserParser : NSObject {
+@interface UserRequest : NSObject {
 	id<UserParserDelegate> _delegate;
 	NSOperationQueue *_operationQueue;
 }
 
-@property (nonatomic, assign) id<UserParserDelegate> delegate;
+@property (nonatomic, assign) id<UsersRequestDelegate> delegate;
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
 
 #pragma mark Initializers
-+(id) parserWithDelegate:(id)delegate;
++(id) requestWithDelegate:(id)delegate;
 -(id) initWithDelegate:(id)delegate;
 
 #pragma mark User Parser methods
@@ -28,20 +28,20 @@ UserParser.h
 @end
 </pre> 
 
-UserParser.m
+UserRequest.m
 
 <pre>
-#import "UserParser.h"
+#import "UserRequest.h"
 #import "Restfulie.h"
 #import "User.h"
 
-@implementation UserParser
+@implementation UserRequest
 
 @synthesize delegate = _delegate;
 @synthesize operationQueue = _operationQueue;
 
-+ (id) parserWithDelegate:(id)delegate {
-	UserParser *p = [[UserParser alloc] initWithDelegate:delegate];
++ (id) requestWithDelegate:(id)delegate {
+	UserRequest *p = [[UserRequest alloc] initWithDelegate:delegate];
 	return p;
 }
 
@@ -74,7 +74,7 @@ UserParser.m
 
 }
 
-- (void) getUsersJob:(NSString *)uniqueName {
+- (void) getUsersJob {
 	
 	Response *res = [[Restfulie at:@"http://localhost:8888/users"] get];
 	NSArray *users = [res resourceWithClass:[User class]];
@@ -92,19 +92,18 @@ UserListViewController.h
 
 <pre>
 #import <UIKit/UIKit.h>
-#import "UserParser.h"
+#import "UserRequest.h"
 
-@interface UserListViewController : UITableViewController<UserParserDelegate> {
+@interface UserListViewController : UITableViewController<UsersRequestDelegate> {
 
-	UserParser *userParser;
+	UserRequest *userRequest;
 	NSArray *users;
 }
 
-@property (nonatomic, retain) UserParser *userParser;
+@property (nonatomic, retain) UserRequest *userRequest;
 @property (nonatomic, retain) NSArray *users;
 
-#pragma mark UserParserDelegate
-
+#pragma mark UsersRequestDelegate
 -(void) addUsers:(NSArray*)usrs;
 
 @end
@@ -115,17 +114,17 @@ UserTableViewController.m
 <pre>
 //...
 
-@synthesize userParser, users;
+@synthesize userRequest, users;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-		self.userParser = [UserParser parserWithDelegate:self];
+		self.userRequest = [UserRequest requestWithDelegate:self];
 	}
 	return self;
 }
 
 - (void) viewDidLoad {
-	[self.userParser getUsers];
+	[self.userRequest getUsers];
 }
 
 - (void) addUsers:(NSArray*)usrs {
@@ -135,7 +134,7 @@ UserTableViewController.m
 
 - (void) dealloc {
 	[self.users release];
-	[self.userParser release];
+	[self.userRequest release];
 	[super dealloc];
 }
 
