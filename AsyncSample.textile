@@ -58,8 +58,7 @@ UserParser.m
 }
 
 - (void) toggleLoadingView {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible  = 
-		![UIApplication sharedApplication].networkActivityIndicatorVisible;
+	[UIApplication sharedApplication].networkActivityIndicatorVisible  = ![UIApplication sharedApplication].networkActivityIndicatorVisible;
 }
 
 - (void) getUsers {
@@ -67,9 +66,7 @@ UserParser.m
 	[self toggleLoadingView];
 	SEL method = @selector(getUsersJob:);
 
-	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self 
-																	 selector:method 
-																	   object:nil];
+	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:method object:nil];
 	[self.operationQueue addOperation:op];
 	[op release];
 
@@ -80,9 +77,7 @@ UserParser.m
 	Response *res = [[Restfulie at:@"http://localhost:8888/users"] get];
 	NSArray *users = [res resourceWithClass:[User class]];
 	
-	[(id)[self delegate] performSelectorOnMainThread:@selector(addUsers:)
-										  withObject:users
-									   waitUntilDone:NO];
+	[(id)[self delegate] performSelectorOnMainThread:@selector(addUsers:) withObject:users waitUntilDone:NO];
 	[self toggleLoadingView];
 }
 
@@ -109,12 +104,15 @@ UserListViewController.h
 #pragma mark UserParserDelegate
 
 -(void) addUsers:(NSArray*)usrs;
-	
+
+@end
 </pre>
 
 UserTableViewController.m
 <pre>
-@synthesize userParser;
+//...
+
+@synthesize userParser, users;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
@@ -137,6 +135,8 @@ UserTableViewController.m
 	[self.userParser release];
 	[super dealloc];
 }
+
 #pragma mark TableView implementations
+
 //...
 </pre>
