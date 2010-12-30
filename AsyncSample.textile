@@ -1,6 +1,7 @@
 h2. Async Parser Sample
 
 UserParser.h
+
 <pre>
 #import <Foundation/Foundation.h>
 #import "User.h"
@@ -29,65 +30,65 @@ UserParser.h
 
 UserParser.m
 <pre>
-	#import "UserParser.h"
-	#import "Restfulie.h"
-	#import "User.h"
+#import "UserParser.h"
+#import "Restfulie.h"
+#import "User.h"
 
-	@implementation UserParser
+@implementation UserParser
 
-	@synthesize delegate = _delegate;
-	@synthesize operationQueue = _operationQueue;
+@synthesize delegate = _delegate;
+@synthesize operationQueue = _operationQueue;
 
-	+ (id) parserWithDelegate:(id)delegate {
-		UserParser *p = [[UserParser alloc] initWithDelegate:delegate];
-		return p;
++ (id) parserWithDelegate:(id)delegate {
+	UserParser *p = [[UserParser alloc] initWithDelegate:delegate];
+	return p;
+}
+
+- (id) initWithDelegate:(id)delegate {
+	self.delegate = delegate;
+	return self;
+}
+
+- (NSOperationQueue *)operationQueue {
+	if(nil == _operationQueue) {
+		_operationQueue = [[NSOperationQueue alloc] init];
+		_operationQueue.maxConcurrentOperationCount = 1;
 	}
+	return _operationQueue;
+}
 
-	- (id) initWithDelegate:(id)delegate {
-		self.delegate = delegate;
-		return self;
-	}
+- (void) toggleLoadingView {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible  = 
+		![UIApplication sharedApplication].networkActivityIndicatorVisible;
+}
 
-	- (NSOperationQueue *)operationQueue {
-		if(nil == _operationQueue) {
-			_operationQueue = [[NSOperationQueue alloc] init];
-			_operationQueue.maxConcurrentOperationCount = 1;
-		}
-		return _operationQueue;
-	}
+- (void) getUsers {
 
-	- (void) toggleLoadingView {
-		[UIApplication sharedApplication].networkActivityIndicatorVisible  = 
-			![UIApplication sharedApplication].networkActivityIndicatorVisible;
-	}
+	[self toggleLoadingView];
 
-	- (void) getUsers {
+	SEL method = @selector(getUsersJob:);
 
-		[self toggleLoadingView];
+	NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self 
+																	 selector:method 
+																	   object:nil];
+	[self.operationQueue addOperation:op];
+	[op release];
 
-		SEL method = @selector(getUsersJob:);
+}
 
-		NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self 
-																		 selector:method 
-																		   object:nil];
-		[self.operationQueue addOperation:op];
-		[op release];
+- (void) getUsersJob:(NSString *)uniqueName {
 
-	}
+	Response *res = [[Restfulie at:@"http://localhost:8888/users"] get];
+	NSArray *users = [res resourceWithClass:[User class]];
 
-	- (void) getUsersJob:(NSString *)uniqueName {
+	[(id)[self delegate] performSelectorOnMainThread:@selector(addUsers:)
+										  withObject:users
+									   waitUntilDone:NO];
 
-		Response *res = [[Restfulie at:@"http://localhost:8888/users"] get];
-		NSArray *users = [res resourceWithClass:[User class]];
+	[self toggleLoadingView];
+}
 
-		[(id)[self delegate] performSelectorOnMainThread:@selector(addUsers:)
-											  withObject:users
-										   waitUntilDone:NO];
-
-		[self toggleLoadingView];
-	}
-
-	@end
+@end
 </pre>
 
 h2. View Controller Sample
@@ -95,52 +96,52 @@ h2. View Controller Sample
 UserListViewController.h
 
 <pre>
-	#import <UIKit/UIKit.h>
-	#import "UserParser.h"
-	
-	@interface UserListViewController : UITableViewController<UserParserDelegate> {
-	
-		UserParser *userParser;
-		NSArray *users;
-	}
-	
-	@property (nonatomic, retain) UserParser *userParser;
-	@property (nonatomic, retain) NSArray *users;
-	
-	#pragma mark UserParserDelegate
-	
-	-(void) addUsers:(NSArray*)usrs;
+#import <UIKit/UIKit.h>
+#import "UserParser.h"
+
+@interface UserListViewController : UITableViewController<UserParserDelegate> {
+
+	UserParser *userParser;
+	NSArray *users;
+}
+
+@property (nonatomic, retain) UserParser *userParser;
+@property (nonatomic, retain) NSArray *users;
+
+#pragma mark UserParserDelegate
+
+-(void) addUsers:(NSArray*)usrs;
 	
 </pre>
 
 UserTableViewController.m
 <pre>
-	@synthesize userParser;
-	
-	- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-	 		self.userParser = [UserParser parserWithDelegate:self];
-	    }
-	    return self;
-	}
-	
-	- (void) viewDidLoad {
-		[self.userParser getUsers];
-	}
-	
-	- (void) addUsers:(NSArray*)usrs {
-		self.users = usrs;
-		[self.tableView reloadData];
-	}
-	
-	- (void) dealloc {
-		[self.users release];
-		[self.userParser release];
-		[super dealloc];
-	}
-	
-	#pragma mark TableView implementations
-	
-	//...
+@synthesize userParser;
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+ 		self.userParser = [UserParser parserWithDelegate:self];
+    }
+    return self;
+}
+
+- (void) viewDidLoad {
+	[self.userParser getUsers];
+}
+
+- (void) addUsers:(NSArray*)usrs {
+	self.users = usrs;
+	[self.tableView reloadData];
+}
+
+- (void) dealloc {
+	[self.users release];
+	[self.userParser release];
+	[super dealloc];
+}
+
+#pragma mark TableView implementations
+
+//...
 	
 </pre>
