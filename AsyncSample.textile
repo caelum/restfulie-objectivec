@@ -11,7 +11,7 @@ UserRequest.h
 @end
 
 @interface UserRequest : NSObject {
-	id<UserParserDelegate> _delegate;
+	id<UsersRequestDelegate> _delegate;
 	NSOperationQueue *_operationQueue;
 }
 
@@ -22,7 +22,7 @@ UserRequest.h
 +(id) requestWithDelegate:(id)delegate;
 -(id) initWithDelegate:(id)delegate;
 
-#pragma mark User Parser methods
+#pragma mark UserRequest methods
 -(void) getUsers;
 
 @end
