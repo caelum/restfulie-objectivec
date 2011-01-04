@@ -1,6 +1,6 @@
 /*
  * Resource.h
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -32,6 +32,6 @@
 - (id) initWithData:(id)data ofType:(Class)clazz;
 - (id) initWithArray:(NSArray *)array ofType:(Class)clazz;
 - (id) createObjWithDictionary:(NSDictionary *)dictionary ofType:(Class)clazz;
-- (id) getData;
+- (void) removeUnavailableKeys:(NSMutableDictionary*)dictionary comparedToObject:(id)obj;
 
 @end

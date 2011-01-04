@@ -1,6 +1,6 @@
 /*
  * Request.h
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -22,17 +22,23 @@
 
 #import <Foundation/Foundation.h>
 #import "Response.h"
+#import "MediaType.h"
+#import "JsonMediaType.h"
 
 @interface Request : NSObject {
 	
 	NSURL *uri;
 	NSError *error;
+	id<MediaType> mediaType;
+	id client;
 }
 
 @property (nonatomic, retain) NSURL *uri;
 @property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) id<MediaType> mediaType;
+@property (nonatomic, retain) id client;
 
-+(Request *) initWithURI:(NSString *)uri;
++(Request *) requestWithURI:(NSString *)uri andClient:(id<RestClient>)client;
 
 /*
  *	Request through http some REST service
@@ -44,6 +50,6 @@
  *	Post some object to a REST service
  *
  */
--(Response *) post;
+-(Response *) post:(id)obj;
 
 @end

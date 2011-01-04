@@ -1,6 +1,6 @@
 /*
  * Restfulie.m
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -21,14 +21,28 @@
  */
 
 #import "Restfulie.h"
+#import "DefaultRestClient.h"
+#import "JsonMediaType.h"
 #import "Request.h"
-
 
 @implementation Restfulie
 
-+ (Request *) at:(NSString *) url 
++(DefaultRestClient*)customWithTypes:(NSArray*)types andCollectionNames:(NSArray*)names {
+									   
+	DefaultRestClient *client = [[DefaultRestClient alloc] init];
+		
+	JsonMediaType *jsonMediaType = [[JsonMediaType alloc] init];
+	[jsonMediaType withTypes:types andCollectionNames:names];
+	
+	[client setMediaTypes:[NSArray arrayWithObjects:jsonMediaType, nil]];
+	[jsonMediaType release];
+	
+	return client;
+}
+
++ (Request *) at:(NSString *) uri
 {
-	return [Request initWithURI:url];
+	return [Request requestWithURI:uri];
 }
 
 @end

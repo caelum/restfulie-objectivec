@@ -1,6 +1,6 @@
 /***
  * JSONUnmarshaller.h
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/23/10.
  *
@@ -21,9 +21,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Unmarshaller.h"
 #import "JSON.h"
 
-@interface JSONUnmarshaller : NSObject<Unmarshaller> 
-
+@interface JSONUnmarshaller : NSObject
+-(NSDictionary *) unmarshall:(NSObject *)data;
 @end

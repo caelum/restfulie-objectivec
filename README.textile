@@ -1,38 +1,10 @@
 h1. Restfulie Objective-C
 
-Just starting development. Only GET method is working with JSON media type by now! Please, check back soon... 
+Under development. Only GET method is working with JSON media type by now! Please, come back later... 
 
 h2. Simple Installation
 
 Just drag n' drop "Classes" and "Libs" folders into your project!
-
-h2. Usage
-
-GET
-
-By now you can use like this:
-
-<pre>
-Response *response = [[Restfulie at:@"http://localhost:8888/users"] get];
-NSArray *users = [response resourceWithClass:[User class]];
-
-Response *response = [[Restfulie at:@"http://localhost:8888/users/1"] get];
-User *user = [response resourceWithClass:[User class]];
-</pre>
-
-We're working on registers so it will become something like this soon:
-
-<pre>
-[Restfulie register:[User class]];
-
-Response *response = [[Restfulie at:@".."] get];
-User *user = [response resource];
-</pre>
-
-h2. iOS Async Request
-
-Create custom protocols with operation queues and attend to it in your views! 
-Check this "sample":https://github.com/caelum/restfulie-objectivec/blob/master/AsyncSample.textile
 
 h2. External Libs
 
@@ -40,9 +12,9 @@ h2. External Libs
 * "asihttp":http://allseeing-i.com/ASIHTTPRequest/
 * "aqtoolkit extensions":https://github.com/AlanQuatermain/aqtoolkit/tree/master/Extensions
 
-h2. Colaborate 
+h2. Collaborate 
 
-Send us an email or DM.
+Send us an email.
 
 "Bruno Fuster":http://brunofuster.wordpress.com ( "email":mailto:brunofuster@gmail.com ) - twitter:http://www.twitter.com/brunofuster
 "Guilherme Silveira":http://guilhermesilveira.wordpress.com ( "email":mailto:guilherme.silveira@caelum.com.br ) - twitter:http://www.twitter.com/guilhermecaelum

@@ -1,6 +1,6 @@
 /***
  * SimpleObjParserTestCase.h
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 12/30/10.
  *

@@ -1,9 +1,9 @@
-/***
- * User.m
+/*
+ * DefaultRestClient.h
  * restfulie-objectivec
  *
- * Created by Bruno Fuster on 12/30/10.
- *
+ * Created by Bruno Fuster on 1/3/11.
+ * 
  * Copyright (c) 2009 Caelum - www.caelum.com.br/opensource
  * All rights reserved.
  *
@@ -20,21 +20,16 @@
  * limitations under the License.
  */
 
-#import "User.h"
+#import <Foundation/Foundation.h>
+#import "Restfulie.h"
+#import "MediaType.h"
+#import "RestClient.h"
 
+@interface DefaultRestClient : NSObject<RestClient> {
 
-@implementation User
-
-@synthesize userId, name, email, address;
-
-- (void) dealloc
-{
-	[userId release];
-	[name release];
-	[email release];
-	[address release];
-	[super dealloc];
+	NSArray<MediaType> *mediaTypes;
 }
 
+@property (nonatomic, retain) NSArray<MediaType> *mediaTypes;
 
 @end

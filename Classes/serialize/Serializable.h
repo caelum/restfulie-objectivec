@@ -1,6 +1,6 @@
 /*
  * Serializable.m
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 

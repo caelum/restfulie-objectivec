@@ -1,8 +1,8 @@
 /*
- * Unmarshaller.m
- * restfulie-objc
+ * MediaType.h
+ * restfulie-objectivec
  *
- * Created by Bruno Fuster on 10/22/10.
+ * Created by Bruno Fuster on 1/3/11.
  * 
  * Copyright (c) 2009 Caelum - www.caelum.com.br/opensource
  * All rights reserved.
@@ -20,9 +20,9 @@
  * limitations under the License.
  */
 
-#import "Unmarshaller.h"
+#import <Foundation/Foundation.h>
 
-
-@implementation Unmarshaller
-
+@protocol MediaType
+-(id)unmarshall:(NSString*)content forClient:(id)client;
 @end
+

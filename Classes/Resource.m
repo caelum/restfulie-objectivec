@@ -1,6 +1,6 @@
 /*
  * Resource.m
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -44,11 +44,7 @@
 	
 	id obj = [[clazz alloc] init];
 	
-	/* CHECK FOR ID KEYS */
-	
-	for (NSString *key in [mutableDict allKeys]) 
-		if (![obj respondsToSelector:NSSelectorFromString(key)]) 
-			[mutableDict removeObjectForKey:key];
+	[self removeUnavailableKeys:mutableDict comparedToObject:obj];
 	
 	/* PREPARE DICT */
 	
@@ -74,6 +70,15 @@
 	return obj;
 }
 
+- (void) removeUnavailableKeys:(NSMutableDictionary*)dictionary comparedToObject:(id)obj {
+	
+	for (NSString *key in [dictionary allKeys]) 
+		if (![obj respondsToSelector:NSSelectorFromString(key)]) 
+			[dictionary removeObjectForKey:key];
+	
+}
+
+
 - (id) initWithArray:(NSArray *)array ofType:(Class)clazz {
 	
 	NSMutableArray *objsArray = [[NSMutableArray alloc] init];
@@ -82,10 +87,6 @@
 		[objsArray addObject:[self createObjWithDictionary:obj ofType:clazz]];
 		
 	return objsArray;
-}
-
-- (id) getData {
-	
 }
 
 @end

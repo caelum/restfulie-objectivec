@@ -1,6 +1,6 @@
 /*
  * Restfulie.h
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -22,12 +22,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Request.h"
-
+#import "DefaultRestClient.h"
 
 @interface Restfulie : NSObject {
 
 }
 
-+(Request*) at:(NSString *) url;
++(id) at:(NSString *) uri;
++(id) customWithTypes:(NSArray*)types andCollectionNames:(NSArray*)names;
 
 @end

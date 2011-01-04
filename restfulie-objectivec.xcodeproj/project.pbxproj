@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D78C00812D2A87C00F4243A /* RestClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D78C00712D2A87C00F4243A /* RestClient.h */; };
 		5DCD422E12CCCBFC00A919BD /* Request.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD421A12CCCBFC00A919BD /* Request.h */; };
 		5DCD422F12CCCBFC00A919BD /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD421B12CCCBFC00A919BD /* Request.m */; };
 		5DCD423212CCCBFC00A919BD /* Resource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD421E12CCCBFC00A919BD /* Resource.h */; };
@@ -20,8 +21,6 @@
 		5DCD423A12CCCBFC00A919BD /* Serializable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD422712CCCBFC00A919BD /* Serializable.h */; };
 		5DCD423B12CCCBFC00A919BD /* SerializableSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD422812CCCBFC00A919BD /* SerializableSupport.h */; };
 		5DCD423C12CCCBFC00A919BD /* SerializableSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD422912CCCBFC00A919BD /* SerializableSupport.m */; };
-		5DCD423D12CCCBFC00A919BD /* Unmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD422A12CCCBFC00A919BD /* Unmarshaller.h */; };
-		5DCD423E12CCCBFC00A919BD /* Unmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD422B12CCCBFC00A919BD /* Unmarshaller.m */; };
 		5DCD427B12CCCCD500A919BD /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD424F12CCCCD500A919BD /* JSON.h */; };
 		5DCD427C12CCCCD500A919BD /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD425012CCCCD500A919BD /* NSObject+SBJSON.h */; };
 		5DCD427D12CCCCD500A919BD /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD425112CCCCD500A919BD /* NSObject+SBJSON.m */; };
@@ -73,11 +72,17 @@
 		5DCD45AB12CCFA6300A919BD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD45AA12CCFA6300A919BD /* User.m */; };
 		5DCD45AE12CCFA8500A919BD /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD45AD12CCFA8500A919BD /* Address.m */; };
 		5DCD45E212CCFC1000A919BD /* librestfulie_objectivec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* librestfulie_objectivec.a */; };
+		5DCD463812D27EC100A919BD /* JsonMediaType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD463612D27EC100A919BD /* JsonMediaType.h */; };
+		5DCD463912D27EC100A919BD /* JsonMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD463712D27EC100A919BD /* JsonMediaType.m */; };
+		5DCD469012D281BF00A919BD /* DefaultRestClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD468E12D281BF00A919BD /* DefaultRestClient.h */; };
+		5DCD469112D281BF00A919BD /* DefaultRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCD468F12D281BF00A919BD /* DefaultRestClient.m */; };
+		5DCD492C12D29DFC00A919BD /* MediaType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCD492A12D29DFC00A919BD /* MediaType.h */; };
 		AA747D9F0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D78C00712D2A87C00F4243A /* RestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestClient.h; sourceTree = "<group>"; };
 		5DCD421A12CCCBFC00A919BD /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		5DCD421B12CCCBFC00A919BD /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		5DCD421E12CCCBFC00A919BD /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
@@ -91,8 +96,6 @@
 		5DCD422712CCCBFC00A919BD /* Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
 		5DCD422812CCCBFC00A919BD /* SerializableSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializableSupport.h; sourceTree = "<group>"; };
 		5DCD422912CCCBFC00A919BD /* SerializableSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerializableSupport.m; sourceTree = "<group>"; };
-		5DCD422A12CCCBFC00A919BD /* Unmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unmarshaller.h; sourceTree = "<group>"; };
-		5DCD422B12CCCBFC00A919BD /* Unmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unmarshaller.m; sourceTree = "<group>"; };
 		5DCD424F12CCCCD500A919BD /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		5DCD425012CCCCD500A919BD /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		5DCD425112CCCCD500A919BD /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -147,6 +150,11 @@
 		5DCD45AA12CCFA6300A919BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5DCD45AC12CCFA8500A919BD /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		5DCD45AD12CCFA8500A919BD /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		5DCD463612D27EC100A919BD /* JsonMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonMediaType.h; sourceTree = "<group>"; };
+		5DCD463712D27EC100A919BD /* JsonMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonMediaType.m; sourceTree = "<group>"; };
+		5DCD468E12D281BF00A919BD /* DefaultRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultRestClient.h; sourceTree = "<group>"; };
+		5DCD468F12D281BF00A919BD /* DefaultRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultRestClient.m; sourceTree = "<group>"; };
+		5DCD492A12D29DFC00A919BD /* MediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaType.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* restfulie_objectivec_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restfulie_objectivec_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* librestfulie_objectivec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librestfulie_objectivec.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +215,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5DCD463212D27E9700A919BD /* mediatype */,
 				5DCD422412CCCBFC00A919BD /* serialize */,
 				5DCD421912CCCBFC00A919BD /* http */,
 				5DCD421E12CCCBFC00A919BD /* Resource.h */,
@@ -215,6 +224,7 @@
 				5DCD422112CCCBFC00A919BD /* Response.m */,
 				5DCD422212CCCBFC00A919BD /* Restfulie.h */,
 				5DCD422312CCCBFC00A919BD /* Restfulie.m */,
+				5D78C00712D2A87C00F4243A /* RestClient.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -243,6 +253,8 @@
 			children = (
 				5DCD421A12CCCBFC00A919BD /* Request.h */,
 				5DCD421B12CCCBFC00A919BD /* Request.m */,
+				5DCD468E12D281BF00A919BD /* DefaultRestClient.h */,
+				5DCD468F12D281BF00A919BD /* DefaultRestClient.m */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -255,8 +267,6 @@
 				5DCD422712CCCBFC00A919BD /* Serializable.h */,
 				5DCD422812CCCBFC00A919BD /* SerializableSupport.h */,
 				5DCD422912CCCBFC00A919BD /* SerializableSupport.m */,
-				5DCD422A12CCCBFC00A919BD /* Unmarshaller.h */,
-				5DCD422B12CCCBFC00A919BD /* Unmarshaller.m */,
 			);
 			path = serialize;
 			sourceTree = "<group>";
@@ -356,6 +366,16 @@
 			path = runtime;
 			sourceTree = "<group>";
 		};
+		5DCD463212D27E9700A919BD /* mediatype */ = {
+			isa = PBXGroup;
+			children = (
+				5DCD463612D27EC100A919BD /* JsonMediaType.h */,
+				5DCD463712D27EC100A919BD /* JsonMediaType.m */,
+				5DCD492A12D29DFC00A919BD /* MediaType.h */,
+			);
+			path = mediatype;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -371,7 +391,6 @@
 				5DCD423812CCCBFC00A919BD /* JSONUnmarshaller.h in Headers */,
 				5DCD423A12CCCBFC00A919BD /* Serializable.h in Headers */,
 				5DCD423B12CCCBFC00A919BD /* SerializableSupport.h in Headers */,
-				5DCD423D12CCCBFC00A919BD /* Unmarshaller.h in Headers */,
 				5DCD427B12CCCCD500A919BD /* JSON.h in Headers */,
 				5DCD427C12CCCCD500A919BD /* NSObject+SBJSON.h in Headers */,
 				5DCD427E12CCCCD500A919BD /* NSString+SBJSON.h in Headers */,
@@ -398,6 +417,10 @@
 				5DCD42A312CCCCD500A919BD /* ASIS3ServiceRequest.h in Headers */,
 				5DCD43B112CCD05200A919BD /* NSString+PropertyKVC.h in Headers */,
 				5DCD43B312CCD05200A919BD /* NSObject+Properties.h in Headers */,
+				5DCD463812D27EC100A919BD /* JsonMediaType.h in Headers */,
+				5DCD469012D281BF00A919BD /* DefaultRestClient.h in Headers */,
+				5DCD492C12D29DFC00A919BD /* MediaType.h in Headers */,
+				5D78C00812D2A87C00F4243A /* RestClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +535,6 @@
 				5DCD423712CCCBFC00A919BD /* Restfulie.m in Sources */,
 				5DCD423912CCCBFC00A919BD /* JSONUnmarshaller.m in Sources */,
 				5DCD423C12CCCBFC00A919BD /* SerializableSupport.m in Sources */,
-				5DCD423E12CCCBFC00A919BD /* Unmarshaller.m in Sources */,
 				5DCD427D12CCCCD500A919BD /* NSObject+SBJSON.m in Sources */,
 				5DCD427F12CCCCD500A919BD /* NSString+SBJSON.m in Sources */,
 				5DCD428112CCCCD500A919BD /* SBJsonBase.m in Sources */,
@@ -533,6 +555,8 @@
 				5DCD42A412CCCCD500A919BD /* ASIS3ServiceRequest.m in Sources */,
 				5DCD43B212CCD05200A919BD /* NSString+PropertyKVC.m in Sources */,
 				5DCD43B412CCD05200A919BD /* NSObject+Properties.m in Sources */,
+				5DCD463912D27EC100A919BD /* JsonMediaType.m in Sources */,
+				5DCD469112D281BF00A919BD /* DefaultRestClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

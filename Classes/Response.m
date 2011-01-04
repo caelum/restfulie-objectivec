@@ -1,6 +1,6 @@
 /*
  * Response.m
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -24,28 +24,21 @@
 
 @implementation Response
 
-@synthesize data, type, code;
+@synthesize data, code, client;
 
-+(Response *) initWithData:(NSDictionary *)data
++(Response *) initWithData:(id)data andClient:(id<RestClient>)client
 {
 	Response *res = [[Response alloc] init];
 	[res setData:data];
+	[res setClient:client];
 	
 	return res;
 }
 
-- (id) resourceWithClass:(Class)clazz
-{
+-(id) resource {
 	
-	Resource *resource = [[Resource alloc] initWithData:self.data ofType:clazz];
-	//TODO create a real wrapper for a Resource!
-	return resource;
-}
-
-- (id) deserialize
-{
-	NSLog(@"data %@", self.data);
-	return nil;
+	id<MediaType> mediaType = [client currentMediaType];
+	return [mediaType unmarshall:self.data forClient:self.client];
 }
 
 - (void) dealloc

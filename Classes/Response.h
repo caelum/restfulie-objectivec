@@ -1,6 +1,6 @@
 /*
  * Response.h
- * restfulie-objc
+ * restfulie-objectivec
  *
  * Created by Bruno Fuster on 10/22/10.
  * 
@@ -22,22 +22,22 @@
 
 #import <Foundation/Foundation.h>
 #import "Resource.h";
+#import "RestClient.h"
 
 @interface Response : NSObject {
 
 	id data;
-	Class type;
+	id<RestClient> client;
 	NSNumber *code;
 	
 }
 
 @property (nonatomic, retain) id data;
-@property (nonatomic, assign) Class type;
+@property (nonatomic, retain) id<RestClient> client;
 @property (nonatomic, retain) NSNumber *code;
 
-+(Response *) initWithData:(id)data;
++(Response *) initWithData:(id)data andClient:(id<RestClient>)client;
 
--(id) resourceWithClass:(Class)clazz;
-
+-(id) resource;
 
 @end
