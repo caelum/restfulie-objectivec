@@ -22,6 +22,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Request.h"
+#import "RestClient.h"
 #import "DefaultRestClient.h"
 
 @interface Restfulie : NSObject {

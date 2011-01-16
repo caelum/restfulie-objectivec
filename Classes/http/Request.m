@@ -25,9 +25,10 @@
 #import "Response.h"
 #import "JSONUnmarshaller.h"
 #import "JsonMediaType.h"
+#import "ASIHTTPRequest.h"
 
 @implementation Request
-@synthesize uri, error, mediaType, client;
+@synthesize uri, error, mediaType, client, request;
 
 +(Request *) requestWithURI:(NSString *)uri andClient:(id<RestClient>)restClient
 {
@@ -36,29 +37,42 @@
 	[req setUri:[NSURL URLWithString:uri]];	
 	[req setMediaType:[restClient currentMediaType]];
 	[req setClient:restClient];
-	
+	[req  setRequest:[ASIHTTPRequest requestWithURL:req.uri]];
 	return req;
+}
+
+
+-(Request*) authUser:(NSString*)usr andPassword:(NSString*)password {
+
+	[request setUseKeychainPersistence:YES];
+	[request setUsername:usr];
+	[request setPassword:password];
+	
+	return self;
 }
 
 -(Response *) get 
 {
 	
-	NSURLRequest *request = [NSURLRequest requestWithURL:self.uri];
+	[request startSynchronous];
 	
-	NSData *responseData = [NSURLConnection sendSynchronousRequest:request
-											 returningResponse:nil 
-														 error:&error];
-	if (error) {
-		NSLog(@"error %@", error);
-	}
+	Response *response = [Response initWithData:[request responseString] andClient:self.client];
+	[response setCode:[NSNumber numberWithInt:[request responseStatusCode]]];
 	
-	NSString *json_string = [[NSString alloc] initWithData:responseData
-												  encoding:NSUTF8StringEncoding];
-	
-	Response *response = [Response initWithData:json_string andClient:self.client];
 	return response;
 }
 
+-(Response*) post {
+
+	[request setRequestMethod:@"POST"];
+	[request startSynchronous];
+	
+	Response *response = [Response initWithData:[request responseString] andClient:self.client];
+	[response setCode:[NSNumber numberWithInt:[request responseStatusCode]]];
+	
+	return response;
+	
+}
 
 -(Response*) post:(id)obj
 {
@@ -69,6 +83,7 @@
 	
 	[uri release];
 	[error release];
+	[request release];
 	[super dealloc];
 }
 

@@ -41,7 +41,9 @@
 
 	for (id obj in types) {		
 		NSString *key = NSStringFromClass([obj class]);
-		key = [key lowercaseString];
+		NSString *first = [[key substringToIndex:1] lowercaseString];
+		NSString *rest = [key substringFromIndex:1];
+		key = [NSString stringWithFormat:@"%@%@", first,rest];
 		[self.typesToEnhance setObject:obj forKey:key];
 	}
 	

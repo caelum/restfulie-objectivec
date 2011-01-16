@@ -24,6 +24,7 @@
 #import "Response.h"
 #import "MediaType.h"
 #import "JsonMediaType.h"
+#import "ASIHTTPRequest.h"
 
 @interface Request : NSObject {
 	
@@ -31,6 +32,10 @@
 	NSError *error;
 	id<MediaType> mediaType;
 	id client;
+	
+	//refactor to get less coupled http schema 
+	ASIHTTPRequest *request;
+	
 }
 
 @property (nonatomic, retain) NSURL *uri;
@@ -38,8 +43,11 @@
 @property (nonatomic, retain) id<MediaType> mediaType;
 @property (nonatomic, retain) id client;
 
+@property (nonatomic, retain) ASIHTTPRequest* request;
+
 +(Request *) requestWithURI:(NSString *)uri andClient:(id<RestClient>)client;
 
+-(Request*) authUser:(NSString*)user andPassword:(NSString*)password;
 /*
  *	Request through http some REST service
  *
@@ -51,5 +59,11 @@
  *
  */
 -(Response *) post:(id)obj;
+
+/*
+ *	Call a post method without body
+ *
+ */
+-(Response*) post;
 
 @end

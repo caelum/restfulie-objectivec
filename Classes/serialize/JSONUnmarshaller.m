@@ -31,7 +31,7 @@
 	if ([data isKindOfClass:[NSString class]]) 
 		return [[SBJsonParser alloc] objectWithString:(NSString *)data];
 
-	[NSException raise:@"Json unmarshaller falied!" format:@"NSString excepted!"];
+	//[NSException raise:@"Json unmarshaller falied!" format:@"NSString excepted!"];
 	return nil;
 }
 
