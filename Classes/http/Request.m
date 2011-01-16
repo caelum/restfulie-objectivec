@@ -57,7 +57,7 @@
 	[request startSynchronous];
 	
 	Response *response = [Response initWithData:[request responseString] andClient:self.client];
-	[response setCode:[NSNumber numberWithInt:[request responseStatusCode]]];
+	[response setCode:[request responseStatusCode]];
 	
 	return response;
 }
@@ -68,7 +68,7 @@
 	[request startSynchronous];
 	
 	Response *response = [Response initWithData:[request responseString] andClient:self.client];
-	[response setCode:[NSNumber numberWithInt:[request responseStatusCode]]];
+	[response setCode:[request responseStatusCode]];
 	
 	return response;
 	

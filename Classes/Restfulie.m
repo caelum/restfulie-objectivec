@@ -40,9 +40,5 @@
 	return client;
 }
 
-+ (Request *) at:(NSString *) uri
-{
-	return [Request requestWithURI:uri];
-}
 
 @end

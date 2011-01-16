@@ -44,7 +44,6 @@
 - (void) dealloc
 {
 	[data release];
-	[code release];
 	[super dealloc];
 }
 

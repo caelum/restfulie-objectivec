@@ -28,13 +28,13 @@
 
 	id data;
 	id<RestClient> client;
-	NSNumber *code;
+	int code;
 	
 }
 
 @property (nonatomic, retain) id data;
 @property (nonatomic, retain) id<RestClient> client;
-@property (nonatomic, retain) NSNumber *code;
+@property (nonatomic, assign) int code;
 
 +(Response *) initWithData:(id)data andClient:(id<RestClient>)client;
 

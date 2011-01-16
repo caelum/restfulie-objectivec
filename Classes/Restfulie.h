@@ -29,7 +29,6 @@
 
 }
 
-+(id) at:(NSString *) uri;
 +(id) customWithTypes:(NSArray*)types andCollectionNames:(NSArray*)names;
 
 @end
