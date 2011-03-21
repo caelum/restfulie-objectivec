@@ -24,8 +24,9 @@
 #import "NSObject+Properties.h"
 #import "Resource.h"
 
-
 @implementation Resource
+
+@synthesize typesToEnhance;
 
 - (id) initWithData:(id)data ofType:(Class)clazz {
 
@@ -35,6 +36,12 @@
 		return [self initWithArray:data ofType:clazz];
 	}
 	
+}
+
+- (id) initWithData:(id)data ofType:(Class)clazz typesToEnhance:(id)types {
+
+	self.typesToEnhance = types;
+	return [self initWithData:data ofType:clazz];
 }
 
 //private
@@ -64,9 +71,22 @@
 				[mutableDict setObject:obj forKey:key];
 			}
 		}
+		else if ([i isKindOfClass:[NSArray class]]) {
+			
+			id type = [self.typesToEnhance objectForKey:key];
+			
+			if (type != nil) {
+				id composedResource = [[Resource alloc] initWithArray:i ofType:type typesToEnhance:self.typesToEnhance];
+				NSLog(@"%@", [composedResource description]);
+				
+				//[mutableDict setObject:composedResource forKey:key];
+				[mutableDict setValue:composedResource forKey:key];
+				NSLog(@"%@", [mutableDict description]);
+			}
+		}
 	}
 	
-	[obj setValuesForKeysWithDictionary:mutableDict];	
+	[obj setValuesForKeysWithDictionary:mutableDict];
 	return obj;
 }
 
@@ -87,6 +107,12 @@
 		[objsArray addObject:[self createObjWithDictionary:obj ofType:clazz]];
 		
 	return objsArray;
+}
+
+- (id) initWithArray:(NSArray *)array ofType:(Class)clazz typesToEnhance:(id)types {
+
+	self.typesToEnhance = types;
+	return [self initWithArray:array ofType:clazz];
 }
 
 @end

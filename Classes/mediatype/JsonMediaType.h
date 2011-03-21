@@ -26,9 +26,13 @@
 @interface JsonMediaType : NSObject<MediaType> {
 
 	NSMutableDictionary *typesToEnhance;
+	NSMutableDictionary *includes; 
+	NSMutableArray *excludes;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *typesToEnhance;
+@property (nonatomic, retain) NSMutableDictionary *includes;
+@property (nonatomic, retain) NSMutableArray *excludes;
 
 - (void) withTypes:(NSArray*)types andCollectionNames:(NSArray*)names;
 

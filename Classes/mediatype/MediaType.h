@@ -24,5 +24,8 @@
 
 @protocol MediaType
 -(id)unmarshall:(NSString*)content forClient:(id)client;
+-(id)marshall:(id)object forClient:(id)client;
+-(void)include:(NSString*)key withClass:(Class)clazz;
+-(void)exclude:(NSString*)key;
 @end
 

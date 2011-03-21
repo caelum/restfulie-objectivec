@@ -22,16 +22,20 @@
 
 #import "JsonMediaType.h"
 #import "JSONUnmarshaller.h"
+#import "NSObject+Properties.h"
+#import "JSONKit.h"
 
 @implementation JsonMediaType
 
-@synthesize typesToEnhance;
+@synthesize typesToEnhance, includes, excludes;
 
 - (id) init
 {
 	self = [super init];
 	if (self != nil) {
 		self.typesToEnhance = [[NSMutableDictionary alloc] init];
+		self.includes = [[NSMutableDictionary alloc] init];
+		self.excludes = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -61,19 +65,77 @@
 	JSONUnmarshaller *unmarshall = [[JSONUnmarshaller alloc] init];
 	NSDictionary *dataDictionary	= [unmarshall unmarshall:content];
 
-	NSString *identifier = [[dataDictionary allKeys] objectAtIndex:0];	
+	NSString *identifier = [[dataDictionary allKeys] objectAtIndex:0];
 	id type = [self.typesToEnhance objectForKey:identifier];
 	
 	NSLog(@"%@", type);
-	NSLog(@"%@", [dataDictionary description]);
-		
-	id resource = [[Resource alloc] initWithData:[dataDictionary objectForKey:identifier] ofType:type];
+	//NSLog(@"%@", [dataDictionary description]);
+	
+	id resource = [[Resource alloc] initWithData:[dataDictionary objectForKey:identifier] ofType:type typesToEnhance:self.typesToEnhance];
 	return resource;
+}
+
+- (id) marshall:(id)object forClient:(id)client {
+
+	NSArray *keys = [self.typesToEnhance allKeysForObject:[object class]];
+	if ([keys count] == 0) {
+		//throw exception;
+	}
+
+	NSString *identifier = [keys objectAtIndex:1]; //single
+	//FIXME change how to get the single identifier
+	
+	NSMutableArray *props = [[NSMutableArray arrayWithArray:[object propertyNames]] retain];
+	if ([self.excludes count] > 0) 
+		for (NSString *prop in self.excludes)
+			[props removeObject:prop];
+	
+	NSMutableDictionary *newIncludes = [[NSMutableDictionary alloc] init];
+	if ([self.includes count] > 0) {
+		for (id include in [self.includes allKeys]) {
+			id obj = [object valueForKey:include];
+			id dict = [obj dictionaryWithValuesForKeys:[obj propertyNames]];
+			[newIncludes setObject:dict forKey:include];
+		}
+	}
+	
+	NSMutableDictionary *objDict = [[NSMutableDictionary dictionaryWithDictionary:[object dictionaryWithValuesForKeys:props]] retain];
+	[props release];
+	
+	for (id dictKey in [newIncludes allKeys]) {
+		[objDict setValue:[newIncludes objectForKey:dictKey] forKey:dictKey];
+	}
+	[newIncludes release];
+	
+	NSDictionary *dict = [[NSDictionary dictionaryWithObject:objDict forKey:identifier] retain];
+	/*NSString *json = [[SBJsonWriter alloc] stringWithObject:dict];*/
+	
+	[objDict release];
+	[dict release];
+	
+	NSError *error;
+	NSString *str = [dict JSONStringWithOptions:JKSerializeOptionEscapeUnicode error:&error];
+	
+	NSLog(@"json: %@", str);
+	
+	return [str dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (void) include:(NSString *)key withClass:(Class)clazz {
+
+	[self.includes setObject:clazz forKey:key];
+}
+
+-(void)exclude:(NSString*)key {
+
+	[self.excludes addObject:key];
 }
 
 - (void) dealloc
 {
-	[typesToEnhance release];
+	[self.typesToEnhance release];
+	[self.includes release];
+	[self.excludes release];
 	[super dealloc];
 }
 

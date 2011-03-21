@@ -37,16 +37,16 @@
 	[req setUri:[NSURL URLWithString:uri]];	
 	[req setMediaType:[restClient currentMediaType]];
 	[req setClient:restClient];
-	[req  setRequest:[ASIHTTPRequest requestWithURL:req.uri]];
+	[req setRequest:[ASIHTTPRequest requestWithURL:req.uri]];
 	return req;
 }
 
 
 -(Request*) authUser:(NSString*)usr andPassword:(NSString*)password {
 
-	[request setUseKeychainPersistence:YES];
-	[request setUsername:usr];
-	[request setPassword:password];
+	[self.request setUseKeychainPersistence:YES];
+	[self.request setUsername:usr];
+	[self.request setPassword:password];
 	
 	return self;
 }
@@ -54,9 +54,9 @@
 -(Response *) get 
 {
 	
-	[request startSynchronous];
+	[self.request startSynchronous];
 	
-	Response *response = [Response initWithData:[request responseString] andClient:self.client];
+	Response *response = [Response initWithData:[self.request responseString] andClient:self.client];
 	[response setCode:[request responseStatusCode]];
 	
 	return response;
@@ -64,11 +64,11 @@
 
 -(Response*) post {
 
-	[request setRequestMethod:@"POST"];
-	[request startSynchronous];
+	[self.request setRequestMethod:@"POST"];
+	[self.request startSynchronous];
 	
-	Response *response = [Response initWithData:[request responseString] andClient:self.client];
-	[response setCode:[request responseStatusCode]];
+	Response *response = [Response initWithData:[self.request responseString] andClient:self.client];
+	[response setCode:[self.request responseStatusCode]];
 	
 	return response;
 	
@@ -76,7 +76,19 @@
 
 -(Response*) post:(id)obj
 {
-	return nil;
+	
+	id marshallObj = [self.mediaType marshall:obj forClient:self.client];
+	NSLog(@"%@", marshallObj);
+		
+	[self.request appendPostData:marshallObj];
+	[self.request addRequestHeader:@"content-type" value:@"application/json"];
+	[self.request setRequestMethod:@"POST"];
+	[self.request startSynchronous];
+	
+	Response *response = [Response initWithData:[self.request responseString] andClient:self.client];
+	[response setCode:[self.request responseStatusCode]];
+	
+	return response;
 }
 
 -(void) dealloc {

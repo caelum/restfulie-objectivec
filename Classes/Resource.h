@@ -26,11 +26,15 @@
 
 @interface Resource : NSObject {
 
-	
+	id typesToEnhance;
 }
 
+@property (nonatomic, assign) id typesToEnhance;
+
 - (id) initWithData:(id)data ofType:(Class)clazz;
+- (id) initWithData:(id)data ofType:(Class)clazz typesToEnhance:(id)types;
 - (id) initWithArray:(NSArray *)array ofType:(Class)clazz;
+- (id) initWithArray:(NSArray *)array ofType:(Class)clazz typesToEnhance:(id)types;
 - (id) createObjWithDictionary:(NSDictionary *)dictionary ofType:(Class)clazz;
 - (void) removeUnavailableKeys:(NSMutableDictionary*)dictionary comparedToObject:(id)obj;
 

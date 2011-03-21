@@ -27,4 +27,6 @@
 -(id) at:(NSString *)uri;
 -(NSArray*)mediaTypes;
 -(id<MediaType>)currentMediaType;
+-(void)include:(NSString*)property withClass:(Class)clazz;
+-(void)exclude:(NSString*)property;
 @end

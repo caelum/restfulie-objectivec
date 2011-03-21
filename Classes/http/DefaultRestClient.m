@@ -37,4 +37,14 @@
 	return [self.mediaTypes objectAtIndex:0];
 }
 
+- (void) include:(NSString*)property withClass:(Class)clazz {
+
+	[[self currentMediaType] include:property withClass:clazz];
+}
+
+-(void) exclude:(NSString *)property {
+	
+	[[self currentMediaType] exclude:property];
+}
+
 @end

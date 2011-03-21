@@ -21,7 +21,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "JSON.h"
 
 @interface JSONUnmarshaller : NSObject
 -(NSDictionary *) unmarshall:(NSObject *)data;
