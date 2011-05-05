@@ -1,8 +1,8 @@
 /*
- * JSONUnmarshaller.m
+ * XmlMediaType.m
  * restfulie-objectivec
  *
- * Created by Bruno Fuster on 10/22/10.
+ * Created by Bruno Fuster on 3/21/11.
  * 
  * Copyright (c) 2009 Caelum - www.caelum.com.br/opensource
  * All rights reserved.
@@ -19,22 +19,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#import "XmlMediaType.h"
 
 
-#import "JSONUnmarshaller.h"
-#import "JSONKit.h"
-
-@implementation JSONUnmarshaller
-
--(NSDictionary *) unmarshall:(NSObject *)data {
-	
-	if ([data isKindOfClass:[NSString class]]) {
-	
-		NSString *jsonStr = (NSString*)data;
-		return [jsonStr objectFromJSONString];
-	}
-	
-	return nil;
-}
+@implementation XmlMediaType
 
 @end

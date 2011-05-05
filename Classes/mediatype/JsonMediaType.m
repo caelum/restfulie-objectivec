@@ -64,6 +64,7 @@
 
 	JSONUnmarshaller *unmarshall = [[JSONUnmarshaller alloc] init];
 	NSDictionary *dataDictionary	= [unmarshall unmarshall:content];
+	[unmarshall release];
 
 	NSString *identifier = [[dataDictionary allKeys] objectAtIndex:0];
 	id type = [self.typesToEnhance objectForKey:identifier];
@@ -71,7 +72,7 @@
 	NSLog(@"%@", type);
 	//NSLog(@"%@", [dataDictionary description]);
 	
-	id resource = [[Resource alloc] initWithData:[dataDictionary objectForKey:identifier] ofType:type typesToEnhance:self.typesToEnhance];
+	id resource = [[[Resource alloc] initWithData:[dataDictionary objectForKey:identifier] ofType:type typesToEnhance:self.typesToEnhance] autorelease];
 	return resource;
 }
 
