@@ -1,6 +1,6 @@
 h1. Restfulie Objective-C
 
-Under development. Only GET method is working with JSON media type by now! Please, come back later... 
+Under development. 
 
 h2. Simple Installation
 
@@ -8,9 +8,18 @@ Just drag n' drop "Classes" and "Libs" folders into your project!
 
 h2. External Libs
 
-* "json-framework":http://code.google.com/p/json-framework/
+* "jsonkit":https://github.com/johnezang/JSONKit
 * "asihttp":http://allseeing-i.com/ASIHTTPRequest/
 * "aqtoolkit extensions":https://github.com/AlanQuatermain/aqtoolkit/tree/master/Extensions
+
+h2. Current Usage (JSON only)
+
+<pre>
+[[client at:@"http://localhost/users"] get];
+[[client at:@"http://localhost/users"] post:user];
+</pre>
+
+"Sample":https://github.com/caelum/restfulie-objectivec/blob/master/Sample
 
 h2. Collaborate 
 
