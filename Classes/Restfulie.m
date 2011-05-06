@@ -37,7 +37,7 @@
 	[client setMediaTypes:[NSArray arrayWithObjects:jsonMediaType, nil]];
 	[jsonMediaType release];
 	
-	return client;
+	return [client autorelease];
 }
 
 
