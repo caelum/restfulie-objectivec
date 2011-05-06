@@ -76,7 +76,7 @@
 			id type = [self.typesToEnhance objectForKey:key];
 			
 			if (type != nil) {
-				id composedResource = [[Resource alloc] initWithArray:i ofType:type typesToEnhance:self.typesToEnhance];
+				id composedResource = [[[Resource alloc] initWithArray:i ofType:type typesToEnhance:self.typesToEnhance] autorelease];
 				NSLog(@"%@", [composedResource description]);
 				
 				//[mutableDict setObject:composedResource forKey:key];

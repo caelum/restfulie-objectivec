@@ -38,7 +38,7 @@
 	[req setMediaType:[restClient currentMediaType]];
 	[req setClient:restClient];
 	[req setRequest:[ASIHTTPRequest requestWithURL:req.uri]];
-	return req;
+	return [req autorelease];
 }
 
 
@@ -53,7 +53,6 @@
 
 -(Response *) get 
 {
-	
 	[self.request startSynchronous];
 	
 	Response *response = [Response initWithData:[self.request responseString] andClient:self.client];

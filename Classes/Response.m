@@ -32,7 +32,7 @@
 	[res setData:data];
 	[res setClient:client];
 	
-	return res;
+	return [res autorelease];
 }
 
 -(id) resource {

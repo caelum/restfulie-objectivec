@@ -62,9 +62,8 @@
 
 - (id) unmarshall:(NSString *)content forClient:(id<RestClient>)client {
 
-	JSONUnmarshaller *unmarshall = [[JSONUnmarshaller alloc] init];
+	JSONUnmarshaller *unmarshall = [[[JSONUnmarshaller alloc] init] autorelease];
 	NSDictionary *dataDictionary	= [unmarshall unmarshall:content];
-	[unmarshall release];
 
 	NSString *identifier = [[dataDictionary allKeys] objectAtIndex:0];
 	id type = [self.typesToEnhance objectForKey:identifier];
