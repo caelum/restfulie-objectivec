@@ -95,7 +95,9 @@
 		for (id include in [self.includes allKeys]) {
 			id obj = [object valueForKey:include];
 			id dict = [obj dictionaryWithValuesForKeys:[obj propertyNames]];
-			[newIncludes setObject:dict forKey:include];
+			if (dict != nil) {
+				[newIncludes setObject:dict forKey:include];
+			}
 		}
 	}
 	
@@ -103,7 +105,10 @@
 	[props release];
 	
 	for (id dictKey in [newIncludes allKeys]) {
-		[objDict setValue:[newIncludes objectForKey:dictKey] forKey:dictKey];
+		id value = [newIncludes objectForKey:dictKey];
+		if (value != nil) {
+			[objDict setValue:value forKey:dictKey];
+		}
 	}
 	[newIncludes release];
 	
